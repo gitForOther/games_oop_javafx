@@ -7,7 +7,7 @@ public class Win {
         boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                if (i == j && (chekVertical(board, j) || chekHorizontal(board[i]))) {
+                if (i == j && (chekVertical(board, j) || chekHorizontal(board, i))) {
                     rsl = true;
                     break;
                 }
@@ -19,26 +19,26 @@ public class Win {
         return rsl;
     }
 
-    public static boolean chekHorizontal(int[] array) {
-        boolean rsl = true;
-        for (int value : array) {
-            if (value != 1) {
-                rsl = false;
+    public static boolean chekHorizontal(int[][] board, int row) {
+        boolean result = true;
+        for (int i = 0; i < board[row].length; i++) {
+            if (board[row][i] != 1) {
+                result = false;
                 break;
             }
         }
-        return rsl;
+        return result;
     }
 
-    public static boolean chekVertical(int[][] array, int j) {
-        boolean rsl = true;
-        for (int[] value : array) {
-            if (value[j] != 1) {
-                rsl = false;
+    public static boolean chekVertical(int[][] board, int column) {
+        boolean result = true;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][column] != 1) {
+                result = false;
                 break;
             }
         }
-        return rsl;
+        return result;
     }
 }
 
