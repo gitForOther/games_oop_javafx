@@ -21,6 +21,15 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (Figure figure : figures) {
+            if (figure == null){
+                continue;
+            }
+            for (Cell cell : steps) {
+                if (figure.position() == cell)
+                    throw new OccupiedCellException("Ячейка " + cell + " занята! Ход невозможен.");
+            }
+        }
         return true;
     }
 
